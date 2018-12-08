@@ -1,23 +1,14 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import Login from './src/components/pages/Login';
+import Dashboard from './src/components/pages/Dashboard';
+import CreateAccount from './src/components/pages/CreateAccount';
+import ResetPassword from './src/components/pages/ResetPassword';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const App = createStackNavigator({
+  Login: { screen: Login },
+  Dashboard: { screen: Dashboard },
+  CreateAccount: { screen: CreateAccount },
+  ResetPassword: { screen: ResetPassword }
 });
 
-class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Welcome to App timer!</Text>
-      </View>
-    );
-  }
-}
-
-export default App;
+export default createAppContainer(App);
