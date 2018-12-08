@@ -5,7 +5,19 @@ const Colors = {
   WHITE: '#FFFFFF',
   BLACK: '#000000',
   RED: '#CB2431',
-  GRAY: '#424242'
+  GRAY: '#424242',
+  GRAYLIGHT: '#CCCCCC'
+}
+
+const defaultButton = {
+  display: 'flex',
+  width: '100%',
+  height: 50,
+  textAlign: 'center',
+  textAlignVertical: 'center',
+  fontWeight: 'bold',
+  marginBottom: 10,
+  borderRadius: 2
 }
 
 export default StyleSheet.create({
@@ -37,7 +49,7 @@ export default StyleSheet.create({
   input: {
     height: 50,
     width: '100%',
-    borderColor: 'gray',
+    borderColor: Colors.GRAYLIGHT,
     borderWidth: 1,
     borderRadius: 2,
     padding: 4,
@@ -48,17 +60,13 @@ export default StyleSheet.create({
     borderColor: Colors.RED
   },
   primaryButton: {
-    display: 'flex',
-    width: '100%',
-    height: 50,
+    ...defaultButton,
     color: Colors.WHITE,
     backgroundColor: Colors.BLUE,
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    fontWeight: 'bold',
-    marginBottom: 10
   },
   secondaryButton: {
+    ...defaultButton,
+    color: Colors.GRAY,
     backgroundColor: Colors.WHITE
   }
 });
