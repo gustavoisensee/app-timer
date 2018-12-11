@@ -1,33 +1,22 @@
 import { StyleSheet } from 'react-native';
-
-const Colors = {
-  BLUE: '#0572f9',
-  WHITE: '#FFFFFF',
-  BLACK: '#000000',
-  RED: '#CB2431',
-  GRAY: '#424242',
-  GRAYLIGHT: '#CCCCCC'
-}
-
-const defaultButton = {
-  display: 'flex',
-  width: '100%',
-  height: 50,
-  textAlign: 'center',
-  textAlignVertical: 'center',
-  fontWeight: 'bold',
-  marginBottom: 10,
-  borderRadius: 2
-}
+import Colors from './colors';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: Colors.WHITE,
+    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: Colors.WHITE,
     padding: 10,
+  },
+  content: {
     height: '100%'
+  },
+  h3: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 30,
+    marginBottom: 30
   },
   label: {
     fontWeight: '600',
@@ -58,15 +47,5 @@ export default StyleSheet.create({
   inputRequired: {
     borderWidth: 1,
     borderColor: Colors.RED
-  },
-  primaryButton: {
-    ...defaultButton,
-    color: Colors.WHITE,
-    backgroundColor: Colors.BLUE,
-  },
-  secondaryButton: {
-    ...defaultButton,
-    color: Colors.GRAY,
-    backgroundColor: Colors.WHITE
   }
 });
