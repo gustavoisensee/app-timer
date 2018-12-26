@@ -11,7 +11,7 @@ export default StyleSheet.create({
     backgroundColor: Colors.BLUE
   },
   menu: {
-    width: 32,
+    width: 28,
     height: 32
   }
 });
