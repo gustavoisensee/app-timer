@@ -9,16 +9,20 @@ class Dashboard extends PureComponent {
   static navigationOptions = useNavigationOptions();
 
   render() {
-    const { navigate } = this.props.navigation;
+    const { navigate, toggleDrawer } = this.props.navigation;
     return (
-      <View style={[style.container, style.content]}>
-        <Header />
-        <Text>Welcome to the Dashboard page</Text>
-        <Button
-          onPress={() => navigate('Login')}
-          text='Back'
-          isPrimary={false}
+      <View style={[style.content]}>
+        <Header
+          toggleDrawer={toggleDrawer}
         />
+        <View style={[style.container, style.content]}>
+          <Text>Welcome to the Dashboard page</Text>
+          <Button
+            onPress={() => navigate('Login')}
+            text='Back'
+            isPrimary={false}
+          />
+        </View>
       </View>
     )
   }

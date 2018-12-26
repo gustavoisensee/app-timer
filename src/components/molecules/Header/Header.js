@@ -1,14 +1,25 @@
 import React, { PureComponent } from 'react';
 import {
-  View, Text
+  View, Button, Image, TouchableWithoutFeedback
 } from 'react-native';
+import style from './style';
+import Colors from '../../../assets/colors';
+import sourceImage from './menu.png';
 
 class Login extends PureComponent {
   render() {
     return (
-      <View>
-        <Text>Header</Text>
-      </View>
+      <TouchableWithoutFeedback
+        style={style.container}
+        onPress={this.props.toggleDrawer}
+      >
+        <View style={[style.container]}>
+          <Image
+            style={style.menu}
+            source={sourceImage}
+          />
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
