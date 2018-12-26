@@ -37,7 +37,7 @@ class Login extends PureComponent {
               password: null,
               submitting: false
             });
-            navigate('Dashboard');
+            navigate('Authenticated');
           }
         })
         .catch(err => this.setState({ submitting: false }));
