@@ -5,12 +5,9 @@ import {
 import Button from '../../atoms/Button';
 import { login } from '../../../actions/login';
 import { isInputRequired } from '../../../helpers/validation';
-import { useNavigationOptions } from '../../../helpers/navigation';
 import style from '../../../assets/style';
 
 class Login extends PureComponent {
-  static navigationOptions = useNavigationOptions();
-
   state = {
     email: '',
     password: '',

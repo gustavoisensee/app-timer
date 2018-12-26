@@ -10,7 +10,8 @@ const defaultButton = {
   marginBottom: 10,
   borderRadius: 2,
   backgroundColor: Colors.WHITE,
-  color: Colors.WHITE
+  color: Colors.WHITE,
+  borderRadius: 25
 }
 
 export default StyleSheet.create({

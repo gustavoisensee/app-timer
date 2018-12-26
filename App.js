@@ -3,20 +3,33 @@ import Login from './src/components/pages/Login';
 import Dashboard from './src/components/pages/Dashboard';
 import CreateAccount from './src/components/pages/CreateAccount';
 import ResetPassword from './src/components/pages/ResetPassword';
+import { useNavigationOptions } from './src/helpers/navigation';
 
-// const routes = {
-//   Login: { screen: Login },
-//   CreateAccount: { screen: CreateAccount },
-//   Dashboard: { screen: Dashboard },
-//   ResetPassword: { screen: ResetPassword }
-// };
+const navigationOptions = {
+  navigationOptions: useNavigationOptions()
+};
 
-// const configs = {
-//   header: null
-// };
+const routes = {
+  Login: {
+    screen: Login,
+    ...navigationOptions  
+  },
+  CreateAccount: {
+    screen: CreateAccount,
+    ...navigationOptions
+  },
+  ResetPassword: {
+    screen: ResetPassword,
+    ...navigationOptions
+  },
+  Dashboard: {
+    screen: Dashboard,
+    ...navigationOptions
+  },
+};
 
-// const App = createStackNavigator(routes, configs);
+const configs = {};
 
-// export default createAppContainer(App);
+const App = createStackNavigator(routes, configs);
 
-export default Dashboard;
+export default createAppContainer(App);

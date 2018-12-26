@@ -1,13 +1,20 @@
 import {createDrawerNavigator, createAppContainer} from 'react-navigation';
 import Dashboard from './Dashboard'
-import Login from '../Login';
+import Settings from '../Settings';
+import { useNavigationOptions } from '../../../helpers/navigation';
+
+const navigationOptions = {
+  navigationOptions: useNavigationOptions()
+};
 
 const routes = {
   Dashboard: {
     screen: Dashboard,
+    ...navigationOptions
   },
   Settings: {
-    screen: Login,
+    screen: Settings,
+    ...navigationOptions
   }
 };
 

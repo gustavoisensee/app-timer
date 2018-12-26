@@ -2,12 +2,9 @@ import React, { PureComponent } from 'react';
 import { Text, TextInput, ScrollView } from 'react-native';
 import { isInputRequired } from '../../../helpers/validation';
 import Button from '../../atoms/Button';
-import { useNavigationOptions } from '../../../helpers/navigation';
 import style from '../../../assets/style';
 
 class CreateAccount extends PureComponent {
-  static navigationOptions = useNavigationOptions();
-
   state = {
     name: '',
     email: '',
@@ -42,7 +39,7 @@ class CreateAccount extends PureComponent {
       passwordRequired,
       passwordConfirmationRequired,
     } = this.state;
-    const { navigate } = this.props.navigation;
+    const { navigate, goBack } = this.props.navigation;
     const nameStyle = isInputRequired(nameRequired);
     const emailStyle = isInputRequired(emailRequired);
     const passwordStyle = isInputRequired(passwordRequired);
@@ -79,7 +76,7 @@ class CreateAccount extends PureComponent {
           loading={submitting}
         />
         <Button
-          onPress={() => navigate('Login')}
+          onPress={() => goBack()}
           text='Back'
           isPrimary={false}
         />
