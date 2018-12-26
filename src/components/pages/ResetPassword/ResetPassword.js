@@ -1,10 +1,12 @@
 import React, { PureComponent } from 'react';
 import { View, Text } from 'react-native';
-import { withoutNavigationBar } from '../../templates/NavigationBar';
 import Button from '../../atoms/Button';
+import { useNavigationOptions } from '../../../helpers/navigation';
 import style from '../../../assets/style';
 
 class ResetPassword extends PureComponent {
+  static navigationOptions = useNavigationOptions();
+
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -20,5 +22,5 @@ class ResetPassword extends PureComponent {
   }
 }
 
-export default withoutNavigationBar(ResetPassword);
+export default ResetPassword;
 

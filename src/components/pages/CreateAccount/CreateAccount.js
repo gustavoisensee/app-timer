@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
-import { View, Text, TextInput, ScrollView} from 'react-native';
-import { withoutNavigationBar } from '../../templates/NavigationBar';
+import { Text, TextInput, ScrollView } from 'react-native';
 import { isInputRequired } from '../../../helpers/validation';
 import Button from '../../atoms/Button';
+import { useNavigationOptions } from '../../../helpers/navigation';
 import style from '../../../assets/style';
 
 class CreateAccount extends PureComponent {
+  static navigationOptions = useNavigationOptions();
+
   state = {
     name: '',
     email: '',
@@ -86,5 +88,5 @@ class CreateAccount extends PureComponent {
   }
 }
 
-export default withoutNavigationBar(CreateAccount);
+export default CreateAccount;
 

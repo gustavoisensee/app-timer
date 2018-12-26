@@ -4,11 +4,13 @@ import {
 } from 'react-native';
 import Button from '../../atoms/Button';
 import { login } from '../../../actions/login';
-import { withoutNavigationBar } from '../../templates/NavigationBar';
 import { isInputRequired } from '../../../helpers/validation';
+import { useNavigationOptions } from '../../../helpers/navigation';
 import style from '../../../assets/style';
 
 class Login extends PureComponent {
+  static navigationOptions = useNavigationOptions();
+
   state = {
     email: '',
     password: '',
@@ -25,32 +27,23 @@ class Login extends PureComponent {
 
     if (email && password && !submitting) {
       this.setState({ submitting: true });
-      try {
-        login(this.state)
-          .then(({ status, ...response }) => {
-            console.log('response: ', response);
-            const { message } = JSON.parse(response._bodyText);
-            const { navigate } = this.props.navigation;
-            console.log(status, message);
-            if (status === 400) this.setState({ error: message, submitting: false })
-            if (status === 200) {
-              this.setState({
-                error: null,
-                email: null,
-                password: null,
-                submitting: false
-              });
-              navigate('Dashboard');
-            }
-          })
-          .catch(err => {
-            console.log('error: ', err);
-            console.log(err.bodyText);
-            this.setState({ submitting: false })
-          });
-      } catch (e) {
-        console.log('catch');
-      }
+      login(this.state)
+        .then(({ status, ...response }) => {
+          const { message } = JSON.parse(response._bodyText);
+          const { navigate } = this.props.navigation;
+
+          if (status === 400) this.setState({ error: message, submitting: false })
+          if (status === 200) {
+            this.setState({
+              error: null,
+              email: null,
+              password: null,
+              submitting: false
+            });
+            navigate('Dashboard');
+          }
+        })
+        .catch(err => this.setState({ submitting: false }));
     }
   }
 
@@ -96,4 +89,4 @@ class Login extends PureComponent {
   }
 }
 
-export default withoutNavigationBar(Login);
+export default Login;
