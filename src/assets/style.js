@@ -42,6 +42,8 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderRadius: 2,
     padding: 4,
+    paddingLeft: 12,
+    paddingRight: 12,
     marginBottom: 20,
   },
   inputRequired: {
