@@ -15,7 +15,8 @@ class Login extends PureComponent {
       handleBlur,
       handleChange,
       handleSubmit,
-      isSubmitting
+      isSubmitting,
+      values
     } = this.props;
 
     return (
@@ -25,6 +26,7 @@ class Login extends PureComponent {
           style={isInputRequired(errors.email)}
           onChangeText={handleChange(EMAIL)}
           onBlur={handleBlur(EMAIL)}
+          value={values.email}
         />
         <Text style={style.label}>Password</Text>
         <TextInput
@@ -32,6 +34,7 @@ class Login extends PureComponent {
           secureTextEntry
           onChangeText={handleChange(PASSWORD)}
           onBlur={handleBlur(PASSWORD)}
+          value={values.password}
         />
         <Button
           onPress={handleSubmit}

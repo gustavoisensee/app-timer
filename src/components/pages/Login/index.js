@@ -25,7 +25,7 @@ const EnhancedForm = withFormik({
         }
         if (status === 200) {
           resetForm();
-          navigate('Authenticated');
+          navigate('Dashboard');
         }
       })
       .catch(() => setSubmitting(false));
