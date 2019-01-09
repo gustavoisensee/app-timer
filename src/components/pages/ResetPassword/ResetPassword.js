@@ -9,11 +9,12 @@ class ResetPassword extends PureComponent {
   render() {
     const {
       errors,
-      handleSubmit,
-      handleChange,
       handleBlur,
+      handleChange,
+      handleSubmit,
       isSubmitting,
-      navigation: { goBack }
+      navigation: { goBack },
+      values
     } = this.props;
 
     return (
@@ -23,6 +24,7 @@ class ResetPassword extends PureComponent {
           style={isInputRequired(errors.email)}
           onChangeText={handleChange(EMAIL)}
           onBlur={handleBlur(EMAIL)}
+          value={values.email}
         />
         <Button
           onPress={handleSubmit}

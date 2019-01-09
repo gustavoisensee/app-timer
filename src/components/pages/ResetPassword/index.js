@@ -1,25 +1,23 @@
 import ResetPassword from './ResetPassword';
 import { withFormik } from 'formik';
+import { allFieldRequired } from '../../../helpers/validation';
 
-const MyEnhancedForm = withFormik({
-  mapPropsToValues: () => ({ email: '' }),
+const EnhancedForm = withFormik({
+  mapPropsToValues: () => ({
+    email: ''
+  }),
 
-  validate: ({ email }) => {
-    const errors = {};
-    if (!email) {
-      errors.email = true;
-    }
-    return errors;
-  },
+  validate: allFieldRequired,
 
-  handleSubmit: (values, { setSubmitting }) => {
+  handleSubmit: (values, { resetForm, setSubmitting }) => {
     setTimeout(() => {
       alert(JSON.stringify(values, null, 2));
+      resetForm();
       setSubmitting(false);
     }, 1000);
   },
 
-  displayName: 'BasicForm',
+  displayName: 'ResetPasswordForm',
 })(ResetPassword);
 
-export default MyEnhancedForm;
+export default EnhancedForm;
