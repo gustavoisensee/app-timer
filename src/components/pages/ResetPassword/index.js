@@ -7,6 +7,8 @@ const EnhancedForm = withFormik({
     email: ''
   }),
 
+  validateOnBlur: false,
+  validateOnChange: false,
   validate: allFieldRequired,
 
   handleSubmit: (values, { resetForm, setSubmitting }) => {

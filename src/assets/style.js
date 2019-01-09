@@ -49,5 +49,10 @@ export default StyleSheet.create({
   inputRequired: {
     borderWidth: 1,
     borderColor: Colors.RED
-  }
+  },
+  inputLabelError: {
+    color: Colors.RED,
+    marginTop: -12,
+    marginBottom: 12
+  },
 });

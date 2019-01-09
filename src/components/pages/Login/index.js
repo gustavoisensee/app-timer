@@ -9,6 +9,8 @@ const EnhancedForm = withFormik({
     password: ''
   }),
 
+  validateOnBlur: false,
+  validateOnChange: false,
   validate: allFieldRequired,
 
   handleSubmit: (values, { props, resetForm, setErrors, setSubmitting }) => {
