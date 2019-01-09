@@ -26,7 +26,7 @@ class CreateAccount extends PureComponent {
     if (name && email && password && passwordConfirmation && !submitting) {
       this.setState({ submitting: true });
       // TODO: fetch to create the account
-      setTimeout(() => this.setState({ submitting: false }), 2000);
+      setTimeout(() => this.setState({ submitting: false }), 500);
     }
   }
 

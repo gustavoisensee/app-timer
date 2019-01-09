@@ -47,19 +47,17 @@ class Login extends PureComponent {
   render() {
     const { error, emailRequired, passwordRequired, submitting } = this.state;
     const { navigate } = this.props.navigation;
-    const emailStyle = isInputRequired(emailRequired);
-    const passwordStyle = isInputRequired(passwordRequired);
 
     return (
       <View style={[style.container, style.content]}>
         <Text style={style.label}>Login</Text>
         <TextInput
-          style={emailStyle}
+          style={isInputRequired(emailRequired)}
           onChangeText={email => this.setState({ email })}
         />
         <Text style={style.label}>Password</Text>
         <TextInput
-          style={passwordStyle}
+          style={isInputRequired(passwordRequired)}
           secureTextEntry
           onChangeText={password => this.setState({ password })}
         />
