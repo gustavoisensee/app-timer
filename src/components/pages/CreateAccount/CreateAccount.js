@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import { ScrollView, Text, TextInput } from 'react-native';
 import { isInputRequired } from '../../../helpers/validation';
 import Button from '../../atoms/Button';
-import { EMAIL, NAME, PASSWORD, PASSWORD_CONFIRMATION } from '../../../helpers/fieldNames';
+import { EMAIL, NAME, PASSWORD, PASSWORD_CONFIRMATION } from '../../../constants/fieldNames';
+import { ERROR, SUCCESS } from '../../../constants/status';
 import style from '../../../assets/style';
 
 class CreateAccount extends PureComponent {
@@ -14,7 +15,8 @@ class CreateAccount extends PureComponent {
       handleSubmit,
       isSubmitting,
       navigation: { goBack },
-      values
+      values,
+      status
     } = this.props;
 
     return (
@@ -66,6 +68,14 @@ class CreateAccount extends PureComponent {
           text='Back'
           isPrimary={false}
         />
+        {status === ERROR &&
+          <Text style={style.labelError}>
+            {errors.api}
+          </Text>}
+        {status === SUCCESS &&
+          <Text style={style.labelSuccess}>
+            Account has been created!
+          </Text>}
       </ScrollView>
     )
   }

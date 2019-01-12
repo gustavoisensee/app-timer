@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import Button from '../../atoms/Button';
 import { isInputRequired } from '../../../helpers/validation';
-import { EMAIL, PASSWORD } from '../../../helpers/fieldNames';
+import { EMAIL, PASSWORD } from '../../../constants/fieldNames';
 import style from '../../../assets/style';
 
 class Login extends PureComponent {

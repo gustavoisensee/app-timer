@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import Button from '../../atoms/Button';
 import { isInputRequired } from '../../../helpers/validation';
-import { EMAIL } from '../../../helpers/fieldNames';
+import { EMAIL } from '../../../constants/fieldNames';
 import style from '../../../assets/style';
 
 class ResetPassword extends PureComponent {

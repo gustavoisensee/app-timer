@@ -1,7 +1,7 @@
 import Login from './Login';
 import { withFormik } from 'formik';
 import { allFieldRequired } from '../../../helpers/validation';
-import { login } from '../../../actions/login';
+import { login } from '../../../services/account';
 
 const EnhancedForm = withFormik({
   mapPropsToValues: () => ({

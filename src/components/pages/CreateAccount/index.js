@@ -1,6 +1,8 @@
 import CreateAccount from './CreateAccount';
 import { withFormik } from 'formik';
 import { allFieldRequired } from '../../../helpers/validation';
+import { ERROR, SUCCESS } from '../../../constants/status';
+import { create } from '../../../services/account';
 
 const EnhancedForm = withFormik({
   mapPropsToValues: () => ({
@@ -20,12 +22,22 @@ const EnhancedForm = withFormik({
     return errors;
   },
 
-  handleSubmit: (values, { resetForm, setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      resetForm();
-      setSubmitting(false);
-    }, 1000);
+  handleSubmit: (values, { resetForm, setErrors, setStatus, setSubmitting }) => {
+    create(values)
+      .then(({ status, ...response }) => {
+        const { message } = JSON.parse(response._bodyText);
+        
+        if ([400, 409].includes(status)) {
+          setStatus(ERROR);
+          setErrors({ api: message });
+        }
+        if (status === 200) {
+          resetForm();
+          setStatus(SUCCESS);
+        }
+        setSubmitting(false);
+      })
+      .catch((e) => setSubmitting(false));
   },
 
   displayName: 'CreateAccountForm',

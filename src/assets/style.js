@@ -31,6 +31,10 @@ export default StyleSheet.create({
     height: 20,
     color: Colors.RED,
   },
+  labelSuccess: {
+    height: 20,
+    color: Colors.GREEN,
+  },
   link: {
     color: Colors.BLUE,
     marginBottom: 6
