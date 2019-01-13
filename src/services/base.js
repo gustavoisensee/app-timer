@@ -1,4 +1,4 @@
-const apiUrl = 'https://app-timer-api-sonxdvzrno.now.sh/';
+const apiUrl = 'https://app-timer-api-rf9ng8k2c.now.sh/';
 
 const createUrl = (path) => `${apiUrl}${path}`;
 

@@ -3,6 +3,7 @@ import { View, Text, TextInput } from 'react-native';
 import Button from '../../atoms/Button';
 import { isInputRequired } from '../../../helpers/validation';
 import { EMAIL } from '../../../constants/fieldNames';
+import { ERROR, SUCCESS } from '../../../constants/status';
 import style from '../../../assets/style';
 
 class ResetPassword extends PureComponent {
@@ -14,7 +15,8 @@ class ResetPassword extends PureComponent {
       handleSubmit,
       isSubmitting,
       navigation: { goBack },
-      values
+      values,
+      status
     } = this.props;
 
     return (
@@ -36,6 +38,14 @@ class ResetPassword extends PureComponent {
           text='Back'
           isPrimary={false}
         />
+        {status === ERROR &&
+          <Text style={style.labelError}>
+            {errors.api}
+          </Text>}
+        {status === SUCCESS &&
+          <Text style={style.labelSuccess}>
+            An email has been sent to you account to reset your password!
+          </Text>}
       </View>
     )
   }

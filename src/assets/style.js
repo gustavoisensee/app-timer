@@ -28,11 +28,13 @@ export default StyleSheet.create({
     color: Colors.GRAY
   },
   labelError: {
-    height: 20,
+    textAlign: 'center',
     color: Colors.RED,
   },
   labelSuccess: {
-    height: 20,
+    textAlign: 'center',
+    width: '100%',
+    
     color: Colors.GREEN,
   },
   link: {
