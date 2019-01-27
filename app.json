@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "test",
+    "name": "app-timer",
     "description": "This project is really great.",
-    "slug": "test",
+    "slug": "app-timer",
     "privacy": "public",
     "sdkVersion": "31.0.0",
     "platforms": [
@@ -24,7 +24,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.gustavoisensee.apptimer"
+    },
+    "android": {
+      "package": "com.gustavoisensee.apptimer"
     }
   }
 }
