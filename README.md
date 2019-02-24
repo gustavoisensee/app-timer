@@ -4,14 +4,11 @@ App timer is a tool for people which spend too much time in some apps and would 
 
 This project has been created by expo app.
 
-## Run the project in expo builder
+##
 
-* yarn install
-* yarn start
+## Run the project
 
-## Run the project in other plataforms.
-
-Ensure you have set up the environment for each OS.
-
-* yarn android
+* Be sure to go through the react-native [get started](https://facebook.github.io/react-native/docs/getting-started) and click at 'Building Projects with Native Code' and follow the instructions.
+* yarn
 * yarn ios
+* yarn android
