@@ -28,8 +28,14 @@ export default StyleSheet.create({
     color: Colors.GRAY
   },
   labelError: {
-    height: 20,
+    textAlign: 'center',
     color: Colors.RED,
+  },
+  labelSuccess: {
+    textAlign: 'center',
+    width: '100%',
+    
+    color: Colors.GREEN,
   },
   link: {
     color: Colors.BLUE,
@@ -49,5 +55,10 @@ export default StyleSheet.create({
   inputRequired: {
     borderWidth: 1,
     borderColor: Colors.RED
-  }
+  },
+  inputLabelError: {
+    color: Colors.RED,
+    marginTop: -12,
+    marginBottom: 12
+  },
 });

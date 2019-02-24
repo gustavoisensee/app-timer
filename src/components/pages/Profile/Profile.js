@@ -1,12 +1,16 @@
-import React, { PureComponent } from 'react';
-import { View, Text, TextInput } from 'react-native';
-import Button from '../../atoms/Button';
+import React, { Component } from 'react';
+import { ScrollView, Text, TextInput } from 'react-native';
 import { isInputRequired } from '../../../helpers/validation';
-import { EMAIL } from '../../../constants/fieldNames';
+import Button from '../../atoms/Button';
+import { NAME } from '../../../constants/fieldNames';
 import { ERROR, SUCCESS } from '../../../constants/status';
 import style from '../../../assets/style';
 
-class ResetPassword extends PureComponent {
+class CreateAccount extends Component {
+  componentDidMount() {
+    // this.props.getUser();
+  }
+
   render() {
     const {
       errors,
@@ -20,17 +24,23 @@ class ResetPassword extends PureComponent {
     } = this.props;
 
     return (
-      <View style={[style.container, style.content]}>
+      <ScrollView contentContainerStyle={style.container}>
+        <Text style={[style.label, style.h3]}>Profile page</Text>
+        <Text style={style.label}>Name</Text>
+        <TextInput
+          style={isInputRequired(errors.name)}
+          onChangeText={handleChange(NAME)}
+          onBlur={handleBlur(NAME)}
+          value={values.name}
+        />
         <Text style={style.label}>Email</Text>
         <TextInput
           style={isInputRequired(errors.email)}
-          onChangeText={handleChange(EMAIL)}
-          onBlur={handleBlur(EMAIL)}
           value={values.email}
         />
         <Button
           onPress={handleSubmit}
-          text='Request reset password'
+          text='Save'
           loading={isSubmitting}
         />
         <Button
@@ -44,12 +54,12 @@ class ResetPassword extends PureComponent {
           </Text>}
         {status === SUCCESS &&
           <Text style={style.labelSuccess}>
-            An email has been sent to you account to reset your password!
+            Account has been created!
           </Text>}
-      </View>
+      </ScrollView>
     )
   }
 }
 
-export default ResetPassword;
+export default CreateAccount;
 
