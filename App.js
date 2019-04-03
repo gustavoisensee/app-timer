@@ -1,25 +1,36 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
 import { Provider } from 'react-redux';
 import RoutesNotAuthenticated from './src/routesNotAuthenticated';
+import RoutesAuthenticated from './src/routesAuthenticated';
 import store from './src/store';
+import { retrieveData } from './src/storage';
+import { USER } from './src/constants/storageKeys';
+import { isUserLogged } from './src/helpers/account';
 
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+class App extends Component {
+  state = {
+    Component: null
   }
-});
 
-// TODO: logic to check logged in/out
-export default class App extends Component {
+  async componentDidMount() {
+    const user = await retrieveData(USER);
+    const isLogged = await isUserLogged(user);
+    
+    const Routes = (isLogged
+      ? RoutesAuthenticated
+      : RoutesNotAuthenticated);
+
+    this.setState({ Component: Routes });
+  }
+
   render() {
-    return (
+    const { Component } = this.state;
+    return ( 
       <Provider store={store}>
-        <RoutesNotAuthenticated />
+        {Component && <Component />}
       </Provider>
     );
   }
 }
+
+export default App;

@@ -2,6 +2,8 @@ import Login from './Login';
 import { withFormik } from 'formik';
 import { allFieldRequired } from '../../../helpers/validation';
 import { login } from '../../../services/account';
+import { storeData } from '../../../storage';
+import { USER } from '../../../constants/storageKeys';
 
 const EnhancedForm = withFormik({
   mapPropsToValues: () => ({
@@ -16,7 +18,8 @@ const EnhancedForm = withFormik({
   handleSubmit: (values, { props, resetForm, setErrors, setSubmitting }) => {
     login(values)
       .then(({ status, ...response }) => {
-        const { message } = JSON.parse(response._bodyText);
+        const result = JSON.parse(response._bodyText);
+        const { message } = result;
         const { navigate } = props.navigation;
 
         if (status === 400) {
@@ -24,6 +27,7 @@ const EnhancedForm = withFormik({
           setSubmitting(false);
         }
         if (status === 200) {
+          storeData(USER, result);
           resetForm();
           navigate('Dashboard');
         }

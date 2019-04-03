@@ -1,13 +1,19 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import {
   Text, TextInput, View
 } from 'react-native';
 import Button from '../../atoms/Button';
 import { isInputRequired } from '../../../helpers/validation';
 import { EMAIL, PASSWORD } from '../../../constants/fieldNames';
+import { removeData } from '../../../storage';
+import { USER } from '../../../constants/storageKeys';
 import style from '../../../assets/style';
 
-class Login extends PureComponent {
+class Login extends Component {
+  async componentDidMount() {
+    removeData(USER);
+  }
+
   render() {
     const {
       errors,

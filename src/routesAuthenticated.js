@@ -1,35 +1,35 @@
-import {createDrawerNavigator, createAppContainer} from 'react-navigation';
+import { createDrawerNavigator, createAppContainer } from 'react-navigation';
 import Login from './components/pages/Login';
 import Dashboard from './components/pages/Dashboard';
 import Profile from './components/pages/Profile';
 import Settings from './components/pages/Settings';
 import { useNavigationOptions } from './helpers/navigation';
 
-const navigationOptions = {
-  navigationOptions: useNavigationOptions()
-};
+const navigationOptions = useNavigationOptions();
 
 const routes = {
   Dashboard: {
     screen: Dashboard,
-    ...navigationOptions
+    navigationOptions
   },
   Profile: {
     screen: Profile,
-    ...navigationOptions
+    navigationOptions
   },
   Settings: {
     screen: Settings,
-    ...navigationOptions
+    navigationOptions
   },
-  Logout: {
-    screen: Login
-  }
+  Login: {
+    screen: Login,
+    navigationOptions: {
+      ...navigationOptions,
+      title: 'Logout'
+    }
+  },
 };
 
-const configs = {};
-
-const MyDrawerNavigator = createDrawerNavigator(routes, configs);
+const MyDrawerNavigator = createDrawerNavigator(routes);
 
 const DashboardIndex = createAppContainer(MyDrawerNavigator);
 
