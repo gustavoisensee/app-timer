@@ -1,4 +1,4 @@
-package com.apptimer;
+package com.myfinances;
 
 import android.app.Application;
 
